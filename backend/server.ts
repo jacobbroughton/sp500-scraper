@@ -1,4 +1,5 @@
-import * as express from "express";
+import express from "express";
+import { Request, Response } from "express";
 var cors = require("cors");
 import * as cheerio from "cheerio";
 
@@ -38,7 +39,7 @@ async function scrape() {
   return elements;
 }
 
-app.get("/", async (req, res) => {
+app.get("/", async (req: Request, res: Response) => {
   const data = await scrape();
   console.log(data.length);
   res.send(JSON.stringify(data));
