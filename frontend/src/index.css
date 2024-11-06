@@ -1,0 +1,43 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 520px;
+  padding-bottom: 50px;
+}
+
+main > div.table-parent {
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+main > div.table-parent > table {
+}
+
+main > div.table-parent > table > thead > tr > th,
+main > div.table-parent > table > tbody > tr > td {
+  text-align: start;
+  padding: 3px 5px;
+}
+
+main > div.table-parent > table > thead > tr > th {
+  padding-top: 0;
+}
+
+main > div.table-parent > table > tbody > tr > td.rank {
+  color: grey;
+}
