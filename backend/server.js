@@ -40,7 +40,6 @@ var express = require("express");
 var cors = require("cors");
 var cheerio = require("cheerio");
 var app = express();
-"<td>1</td>\n<td style=\"max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\"><a href=\"/symbol/NVDA\">Nvidia Corp</a></td>\n<td><a href=\"/symbol/NVDA\">NVDA</a></td>\n<td>7.03%</td>\n<td class=\"text-nowrap\"><img src=\"/img/up.gif\" alt=\"\"> &nbsp;&nbsp;142.35</td>\n<td class=\"text-nowrap\" style=\"color: green\">2.44</td>\n<td class=\"text-nowrap\" style=\"color: green\">(1.74%)</td>";
 app.use(cors());
 var hostname = "127.0.0.1";
 var port = 4000;
