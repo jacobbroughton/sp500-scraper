@@ -37,10 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
-var cors = require("cors");
 var cheerio = require("cheerio");
+var cors_1 = require("cors");
 var app = (0, express_1.default)();
-app.use(cors());
+app.use((0, cors_1.default)());
 var hostname = "127.0.0.1";
 var port = 4000;
 function scrape() {
