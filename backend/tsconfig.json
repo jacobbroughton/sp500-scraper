@@ -2,13 +2,13 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["es2023", "DOM"],
-    "module": "node16",
+    "module": "CommonJS",
     "target": "ES2023",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "Node",
     "sourceMap": true /* Create source map files for emitted JavaScript files. */,
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
     "rootDir": "./"

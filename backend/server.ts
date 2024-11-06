@@ -1,7 +1,7 @@
 import express from "express";
 import { Request, Response } from "express";
-var cors = require("cors");
 import * as cheerio from "cheerio";
+import cors from "cors";
 
 const app = express();
 
