@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useScrapedData } from "./hooks/useScrapedData";
 
 function App(): JSX.Element {

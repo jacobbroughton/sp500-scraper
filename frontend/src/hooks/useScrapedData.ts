@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
+type RowType = { rank: number; symbol: string; company: string };
+
 export function useScrapedData(): {
   loading: boolean;
   error: string | null;
-  data: { rank: number; symbol: string; company: string }[];
+  data: RowType[];
 } {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<RowType[]>([]);
 
   async function getScrapedData() {
     try {
@@ -21,7 +23,7 @@ export function useScrapedData(): {
 
       setData(data);
     } catch (error) {
-      setError(error.toString());
+      setError(error ? error.toString() : null);
     } finally {
       setLoading(false);
     }
