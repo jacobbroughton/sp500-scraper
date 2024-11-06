@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "ES6",
+    "module": "es2022",
     "lib": [
       "es5",
       "es6",
