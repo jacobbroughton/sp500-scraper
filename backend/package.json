@@ -18,7 +18,9 @@
     "express": "^4.21.1"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.35",
     "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
     "@types/react": "^18.3.12"
   }
 }
