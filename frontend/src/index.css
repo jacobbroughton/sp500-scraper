@@ -13,13 +13,43 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 main {
   margin: 0 auto;
   max-width: 520px;
   padding-bottom: 50px;
 }
 
-main > div.table-parent {
+main > div.footnotes {
+  margin-bottom: 10px;
+}
+
+main > div.footnotes > p {
+  font-size: 0.875rem;
+}
+
+main > h1 {
+  margin: 30px 0 10px 0;
+}
+
+main > div.error {
+  border: 1px solid crimson;
+  border-radius: 5px;
+  padding: 10px;
+  color: crimson;
+  font-size: 0.875rem;
+}
+
+main > div.error > p:first-child {
+  font-size: 1rem;
+}
+
+main > div.table-parent,
+main > div.loading {
   border: 1px solid #555;
   border-radius: 5px;
   padding: 10px;
@@ -40,4 +70,14 @@ main > div.table-parent > table > thead > tr > th {
 
 main > div.table-parent > table > tbody > tr > td.rank {
   color: grey;
+}
+
+main > div.loading {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+main > div.loading > ul {
+  list-style: none;
 }

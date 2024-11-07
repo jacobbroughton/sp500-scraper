@@ -2,14 +2,40 @@ import * as React from "react";
 import { useScrapedData } from "./hooks/useScrapedData";
 
 function App(): JSX.Element {
-  const { loading, data: scrapedData } = useScrapedData();
+  const { loading, error, data: scrapedData } = useScrapedData();
 
   return (
     <>
       <main>
         <h1>S&P 500 Scraper</h1>
-        {loading ? (
-          <p>List loading...</p>
+        <div className="footnotes">
+          <p>Data updates every 5 days</p>
+          <p>Last scrape: {loading ? "N/A" : scrapedData.lastFetched}</p>
+        </div>
+        {error ? (
+          <div className="error">
+            <p>
+              <strong><i>⚠️ Error</i></strong>
+            </p>
+            <p>
+              <i>{error}</i>
+              <p><strong>Hint:</strong>{" "}Try turning it on and off again</p>
+            </p>
+          </div>
+        ) : loading ? (
+          <div className="loading">
+            <p>
+              <strong>List loading...</strong>
+            </p>
+            <p>
+              <i>If this is taking a while:</i>
+            </p>
+            <ul>
+              <li>- The website is broken (sorry)</li>
+              <li>- or</li>
+              <li>- The data is being scraped again, which can take a moment</li>
+            </ul>
+          </div>
         ) : (
           <div className="table-parent">
             <table>
@@ -19,7 +45,7 @@ function App(): JSX.Element {
                 </tr>
               </thead>
               <tbody>
-                {scrapedData.map((row) => (
+                {scrapedData.companies.map((row) => (
                   <tr>
                     <td className="rank">{row.rank}</td>
                     <td className="symbol">{row.symbol}</td>

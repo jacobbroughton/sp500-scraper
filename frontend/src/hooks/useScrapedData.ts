@@ -5,17 +5,24 @@ type RowType = { rank: number; symbol: string; company: string };
 export function useScrapedData(): {
   loading: boolean;
   error: string | null;
-  data: RowType[];
+  data: { lastFetched: string; companies: RowType[] };
 } {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<RowType[]>([]);
+  const [data, setData] = useState<{ lastFetched: string; companies: RowType[] }>({
+    lastFetched: "",
+    companies: [],
+  });
 
   async function getScrapedData() {
     try {
       setLoading(true);
 
-      const response = await fetch(import.meta.env.NODE_ENV === 'development' ? "http://localhost:4000" : 'https://sp500-scraper.onrender.com/');
+      const response = await fetch(
+        import.meta.env.DEV
+          ? "http://localhost:4000"
+          : "https://sp500-scraper.onrender.com/"
+      );
 
       if (!response.ok) throw new Error("Something happened");
 
