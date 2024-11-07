@@ -18,6 +18,8 @@ export function useScrapedData(): {
     try {
       setLoading(true);
 
+      alert(import.meta.env.DEV)
+
       const response = await fetch(
         import.meta.env.DEV
           ? "http://localhost:4000"
