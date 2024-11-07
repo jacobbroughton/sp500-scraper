@@ -1,8 +1,11 @@
-import express from "express";
+import * as express from "express";
 import { Request, Response } from "express";
 import * as cheerio from "cheerio";
-import cors from "cors";
+import * as cors from "cors";
+import * as dotenv from "dotenv";
+import * as fs from "fs";
 
+dotenv.config();
 const app = express();
 
 app.use(cors());
@@ -15,6 +18,8 @@ async function scrape() {
   const htmlStr = await response.text();
 
   const $ = cheerio.load(htmlStr);
+
+  console.log("scraping");
 
   const elements: any[] = [];
 
@@ -40,10 +45,62 @@ async function scrape() {
 }
 
 app.get("/", async (req: Request, res: Response) => {
-  const data = await scrape();
-  console.log(data.length);
-  res.send(JSON.stringify(data));
+  let jsonData: string = "";
+  fs.readFile("data.json", "utf-8", async (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData: {
+        lastFetched: string;
+        companies: { rank: number; symbol: string; company: string }[];
+      } = JSON.parse(data);
+
+      const oneDayMS = 1000 * 60 * 60 * 24;
+      const timeNeededToFetchMS = oneDayMS * 5;
+      const timeSinceLastFetchedMS =
+        new Date().getTime() - new Date(parsedData.lastFetched).getTime();
+
+      if (timeSinceLastFetchedMS > timeNeededToFetchMS) {
+        const data = await scrape();
+
+        jsonData = JSON.stringify(
+          {
+            lastFetched: new Date().toLocaleString(),
+            companies: data,
+          },
+          null,
+          2
+        );
+
+        createNewFile(jsonData);
+
+        res.send(jsonData);
+      } else {
+        jsonData = data;
+
+        res.send(jsonData);
+      }
+    }
+  });
 });
+
+function createNewFile(jsonData: string) {
+  fs.unlink("data.json", (err) => {
+    if (err) {
+      console.error("something happened when unlinking the file");
+    } else {
+      console.log("File was deleted");
+    }
+  });
+
+  fs.writeFile("data.json", jsonData, (err) => {
+    if (err) {
+      console.error("something happened when saving the file");
+    } else {
+      console.log("File was created");
+    }
+  });
+}
 
 app.listen(port, () => {
   console.log(
