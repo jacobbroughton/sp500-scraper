@@ -21,7 +21,6 @@
 //     "noEmit": true
 //   }
 // }
-
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -42,7 +41,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Explicit Types */
+    "types": ["react"]
   },
-  "include": ["src"],
+  "include": ["src"]
 }
