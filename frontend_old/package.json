@@ -1,5 +1,5 @@
 {
-  "name": "frontend_",
+  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
@@ -22,7 +23,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "typescript": "~5.6.2",
+    "typescript": "^5.6.3",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10"
   }
