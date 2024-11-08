@@ -42,10 +42,7 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    /* Explicit Types */
-    "types": ["react"]
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"]
 }
