@@ -1,6 +1,6 @@
 import { useScrapedData } from "./hooks/useScrapedData.ts";
 
-function App(): JSX.Element {
+function App() {
   const { loading, error, data: scrapedData } = useScrapedData();
 
   return (
