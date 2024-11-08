@@ -1,4 +1,4 @@
-import { useScrapedData } from "./hooks/useScrapedData";
+import { useScrapedData } from "./hooks/useScrapedData.ts";
 
 function App(): JSX.Element {
   const { loading, error, data: scrapedData } = useScrapedData();
@@ -14,11 +14,15 @@ function App(): JSX.Element {
         {error ? (
           <div className="error">
             <p>
-              <strong><i>⚠️ Error</i></strong>
+              <strong>
+                <i>⚠️ Error</i>
+              </strong>
             </p>
             <p>
               <i>{error}</i>
-              <p><strong>Hint:</strong>{" "}Try turning it on and off again</p>
+              <p>
+                <strong>Hint:</strong> Try turning it on and off again
+              </p>
             </p>
           </div>
         ) : loading ? (
@@ -44,13 +48,15 @@ function App(): JSX.Element {
                 </tr>
               </thead>
               <tbody>
-                {scrapedData.companies.map((row) => (
-                  <tr>
-                    <td className="rank">{row.rank}</td>
-                    <td className="symbol">{row.symbol}</td>
-                    <td className="company">{row.company}</td>
-                  </tr>
-                ))}
+                {scrapedData.companies.map(
+                  (row: { rank: number; symbol: string; company: string }) => (
+                    <tr>
+                      <td className="rank">{row.rank}</td>
+                      <td className="symbol">{row.symbol}</td>
+                      <td className="company">{row.company}</td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
