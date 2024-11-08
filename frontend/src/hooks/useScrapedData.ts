@@ -19,9 +19,9 @@ export function useScrapedData(): {
       setLoading(true);
 
       const response = await fetch(
-        import.meta.env.DEV
-          ? "http://localhost:4000"
-          : "https://sp500-scraper.onrender.com/"
+        import.meta.env.PROD
+          ? "https://sp500-scraper.onrender.com/"
+          : "http://localhost:4000"
       );
 
       if (!response.ok) throw new Error("Something happened");
