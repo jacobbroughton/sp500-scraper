@@ -16,7 +16,7 @@
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. */,
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowImportingTsExtensions": true,
     "noEmit": true
   }
