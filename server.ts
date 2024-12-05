@@ -101,8 +101,12 @@ app.get("/", async (req: Request, res: Response) => {
     // return
 
     res.send(`
-      <html>
+    <!DOCTYPE html>
+      <html lang="en">
       <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>S&P 500 Scraper</title>
         <style>
           :root {
             font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
