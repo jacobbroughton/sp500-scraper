@@ -1,9 +1,9 @@
-import * as express from "express";
+import express from "express";
 import { Request, Response } from "express";
-import * as cheerio from "cheerio";
-import * as cors from "cors";
-import * as dotenv from "dotenv";
-import * as fs from "fs";
+import cheerio from "cheerio";
+import cors from "cors";
+import dotenv from "dotenv";
+import fs from "fs";
 
 dotenv.config();
 const app = express();
