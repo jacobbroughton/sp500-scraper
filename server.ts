@@ -135,7 +135,9 @@ app.get("/", async (req: Request, res: Response) => {
           }
 
           @media screen and (max-device-width: 450px) {
-           margin: 0 10px;
+            main {
+              margin: 0 10px;
+            }
           }
 
           main > div.footnotes {
@@ -214,15 +216,17 @@ app.get("/", async (req: Request, res: Response) => {
                   </tr>
                 </thead>
                 <tbody>
-                  ${parsedJsonData.companies.map(
-                    (company) => `
+                  ${parsedJsonData.companies
+                    .map(
+                      (company) => `
                       <tr>
                         <td class="rank">${company.rank}</td>
                         <td class="symbol">${company.symbol}</td>
                         <td class="company">${company.company}</td>
                       </tr>
                       `
-                  ).join("")}
+                    )
+                    .join("")}
                 </tbody>
               </table>
             </div>
