@@ -68,8 +68,12 @@ app.get("/", async (req, res) => {
         // res.send(jsonData)
         // return
         res.send(`
-      <html>
+    <!DOCTYPE html>
+      <html lang="en">
       <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>S&P 500 Scraper</title>
         <style>
           :root {
             font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -95,6 +99,10 @@ app.get("/", async (req, res) => {
             margin: 0 auto;
             max-width: 520px;
             padding-bottom: 50px;
+          }
+
+          @media screen and (max-device-width: 450px) {
+           margin: 0 10px;
           }
 
           main > div.footnotes {

@@ -134,6 +134,10 @@ app.get("/", async (req: Request, res: Response) => {
             padding-bottom: 50px;
           }
 
+          @media screen and (max-device-width: 450px) {
+           margin: 0 10px;
+          }
+
           main > div.footnotes {
             margin-bottom: 10px;
           }
