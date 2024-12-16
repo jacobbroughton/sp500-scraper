@@ -1,6 +1,6 @@
 import express from "express";
 import { Request, Response } from "express";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import cors from "cors";
 import dotenv from "dotenv";
 import fs from "fs";
